@@ -1,0 +1,22 @@
+{
+  "name": "webclipper",
+  "version": "0.0.0",
+  "description": "WebClipper extension for Laverna",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Laverna/webclipper.git"
+  },
+  "author": "",
+  "license": "GNU GPLv3",
+  "bugs": {
+    "url": "https://github.com/Laverna/webclipper/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "bower": "~1.2.8"
+  }
+}
