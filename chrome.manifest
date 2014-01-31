@@ -1,0 +1,3 @@
+content     laverna-clipper    chrome/content/
+
+overlay chrome://browser/content/browser.xul chrome://laverna-clipper/content/browser.xul
