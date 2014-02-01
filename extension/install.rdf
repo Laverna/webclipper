@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>laverna-19299879@example.org</em:id>
+    <em:version>0.1</em:version>
+    <em:type>2</em:type>
+
+    <em:iconURL>chrome://laverna-clipper/content/img/icon-28x28.png</em:iconURL>
+    <em:icon64URL>chrome://laverna-clipper/content/img/icon-64x64.png</em:icon64URL>
+
+    <!-- Target Application this extension can install into,
+         with minimum and maximum supported versions. -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>1.5</em:minVersion>
+        <em:maxVersion>27.0.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+    <!-- Front End MetaData -->
+    <em:name>Laverna web clipper</em:name>
+    <em:description>Clip page into Laverna web app</em:description>n
+    <em:creator>Laverna project</em:creator>
+    <em:homepageURL>https://laverna.cc/index.html</em:homepageURL>
+    <em:optionsURL>chrome://laverna-clipper/content/options.xul</em:optionsURL>
+    <em:optionsType>2</em:optionsType>
+  </Description>
+</RDF>

@@ -1,1 +1,1 @@
-~/www/webclipper/
+~/www/webclipper/extension/
