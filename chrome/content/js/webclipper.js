@@ -4,8 +4,14 @@
  */
 var webclipper = function () {
 
+
     return {
         init: function () {
+            this.prefs = Components.classes["@mozilla.org/preferences-service;1"]
+                 .getService(Components.interfaces.nsIPrefService)
+                 .getBranch("extensions.laverna-clipper.");
+
+            this.prefs.addObserver("", this, false);
         },
 
         clip: function () {
@@ -20,7 +26,7 @@ var webclipper = function () {
         },
 
         redirect: function (body, title) {
-            var myUrl = 'http://localhost/laverna/app/#/notes/add',
+            var myUrl = this.prefs.getCharPref("appURL") + '/index.html#/notes/add',
                 browser = top.document.getElementById('content'),
                 tab = browser.addTab(myUrl),
                 inter,
@@ -61,7 +67,6 @@ var webclipper = function () {
 
 } ();
 
-content.window.addEventListener('load', function load() {
-    window.removeEventListener('load', load, false);
+window.addEventListener('load', function (e) {
     webclipper.init();
 }, false);

@@ -26,5 +26,7 @@
     <em:description>Clip page into Laverna web app</em:description>n
     <em:creator>Laverna project</em:creator>
     <em:homepageURL>https://laverna.cc/index.html</em:homepageURL>
+    <em:optionsURL>chrome://laverna-clipper/content/options.xul</em:optionsURL>
+    <em:optionsType>2</em:optionsType>
   </Description>
 </RDF>
