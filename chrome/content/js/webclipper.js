@@ -65,4 +65,3 @@ content.window.addEventListener('load', function load() {
     window.removeEventListener('load', load, false);
     webclipper.init();
 }, false);
-

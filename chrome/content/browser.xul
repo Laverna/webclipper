@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
 <overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="js/webclipper.js"></script>
-    <statusbar id="status-bar">
-        <statusbarpanel id="my-panel" label="Hello, World"  />
-    </statusbar>
     <toolbarpalette id="BrowserToolbarPalette">
-        <toolbarbutton id="laverna-clipper-toolbar-button" label="Webclipper for Laverna" tooltiptext="Clip the page" oncommand="webclipper.clip()" />
+        <toolbarbutton id="laverna-clipper-toolbar-button" class="toolbarbutton-1" label="Webclipper for Laverna" image="chrome://laverna-clipper/content/img/icon-18x18.png" tooltiptext="Clip the page" oncommand="webclipper.clip()" />
 	</toolbarpalette>
 </overlay>

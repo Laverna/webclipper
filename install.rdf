@@ -5,8 +5,11 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>laverna-19299879@example.org</em:id>
-    <em:version>5.7</em:version>
+    <em:version>0.1</em:version>
     <em:type>2</em:type>
+
+    <em:iconURL>chrome://laverna-clipper/content/img/icon-28x28.png</em:iconURL>
+    <em:icon64URL>chrome://laverna-clipper/content/img/icon-64x64.png</em:icon64URL>
 
     <!-- Target Application this extension can install into,
          with minimum and maximum supported versions. -->
