@@ -1,4 +1,0 @@
-content     laverna-clipper    chrome/content/
-content     laverna-clipper    chrome/content/ contentaccessible=yes
-
-overlay chrome://browser/content/browser.xul chrome://laverna-clipper/content/browser.xul
