@@ -13,7 +13,7 @@ var webclipper = function () {
             this.prefs.addObserver("", this, false);
         },
 
-        clip: function () {
+        clip: function (type) {
             var title = content.document.getElementsByTagName('title'),
                 body = content.document.getElementsByTagName('body');
 
@@ -21,7 +21,33 @@ var webclipper = function () {
                 return;
             }
 
-            webclipper.redirect(body[0].innerHTML, title[0].innerHTML);
+            // Clip selected item
+            if (type === 'selected') {
+                var $els = $('div,article,section,aside', content.document);
+                $els.on('mouseover mouseout click', function (e) {
+                    e.stopPropagation();
+                    $content = $(this);
+                    switch (e.type) {
+                        case 'mouseover':
+                            $content.css({
+                                'outline': '1px solid ' + $content.css('color')
+                            });
+                            break;
+                        case 'mouseout':
+                            $content.css('outline', 'none');
+                            break;
+                        case 'click':
+                            $els.off('mouseover mouseout click');
+                            $content.css('outline', 'none');
+                            webclipper.redirect($content.html(), title[0].innerHTML);
+                            break;
+                    }
+                });
+            }
+            // Or entire page
+            else {
+                webclipper.redirect(body[0].innerHTML, title[0].innerHTML);
+            }
         },
 
         redirect: function (body, title) {
@@ -50,17 +76,17 @@ var webclipper = function () {
         },
 
         fillForm: function (body, title) {
-            var inputTitle = content.document.getElementById('inputTitle'),
-                inputText = content.document.getElementById('clipContent');
+            var inputTitle = $('#inputTitle', content.document),
+                inputText = $('#clipContent', content.document);
 
-            if ( !inputTitle || !inputText) {
+            if (inputTitle.length === 0 || inputText.length === 0) {
                 return false;
             }
 
             body = toMarkdown(body);
 
-            inputTitle.value = title;
-            inputText.value = body.replace(/(<([^>]+)>)/ig, '');
+            inputTitle.val(title);
+            inputText.val(body);
             inputTitle.blur();
             return true;
         }

@@ -1,14 +1,37 @@
 <?xml version="1.0"?>
+<?xml-stylesheet href="chrome://laverna-clipper/content/browser.css" type="text/css"?>
 <overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script src="bower_components/zeptojs/src/zepto.js"></script>
+    <script src="bower_components/zeptojs/src/event.js"></script>
     <script src="bower_components/to-markdown/src/to-markdown.js"></script>
     <script src="js/webclipper.js"></script>
+
     <toolbarpalette id="BrowserToolbarPalette">
-        <toolbarbutton position="1"
-            class="toolbarbutton-1 chromeclass-toolbar-additional custombutton"
-            id="laverna-clipper-toolbar-button"
-            label="Webclipper for Laverna"
-            image="chrome://laverna-clipper/content/img/icon-18x18.png"
-            tooltiptext="Clip the page"
-            oncommand="webclipper.clip()" />
-	</toolbarpalette>
+        <toolbarbutton id="laverna-clipper-button"
+            position="1"
+            insertbefore="print-button"
+            class="toolbarbutton-2 chromeclass-toolbar-additional custombutton"
+            tooltiptext="Clip the entire page or selected item to Laverna"
+            label="Laverna webclipper"
+            buttonstyle="pictures"
+            type="menu"
+            rulesetsApplied="0">
+            <!-- Popup menu -->
+            <menupopup id="laverna-clipper-context">
+                <menuitem label="Clip the entire page" command="laverna-clip-the-page" />
+                <menuitem label="Clip selected item" command="laverna-clip-selected" />
+                <menuseparator />
+                <menuitem label="Laverna notes" command="laverna-open-web-app"/>
+            </menupopup>
+        </toolbarbutton>
+    </toolbarpalette>
+
+    <commandset>
+        <command id="laverna-clip-the-page"
+            oncommand="webclipper.clip('page');" />
+        <command id="laverna-clip-selected"
+            oncommand="webclipper.clip('selected');" />
+        <command id="laverna-open-web-app"
+            oncommand="open_in_tab('https://laverna.cc/index.html');" />
+    </commandset>
 </overlay>

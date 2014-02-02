@@ -15,5 +15,8 @@
   ],
   "dependencies": {
     "to-markdown": "*"
+  },
+  "devDependencies": {
+    "zeptojs": "~1.1.2"
   }
 }
