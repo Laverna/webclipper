@@ -16,9 +16,7 @@ var webclipper = function () {
         clip: function (type) {
             var title = content.document.getElementsByTagName('title'),
                 body = content.document.getElementsByTagName('body');
-
-            if (title.length === 0 || body.length === 0) {
-                return;
+if (title.length === 0 || body.length === 0) { return;
             }
 
             // Clip selected item
@@ -57,6 +55,9 @@ var webclipper = function () {
                 inter,
                 result;
 
+            // get url of the page to clip
+            url = content.window.location.href;
+
             // use this line to focus the new tab, otherwise it will open in background
             browser.selectedTab = tab;
 
@@ -66,7 +67,7 @@ var webclipper = function () {
 
                     // Try to find Form's input in the DOM until success
                     inter = setInterval(function () {
-                        result = webclipper.fillForm(body, title);
+                        result = webclipper.fillForm(body, title, url);
                         if (result === true) {
                             clearInterval(inter);
                         }
@@ -75,7 +76,7 @@ var webclipper = function () {
             }, false);
         },
 
-        fillForm: function (body, title) {
+        fillForm: function (body, title, url) {
             var inputTitle = $('#inputTitle', content.document),
                 inputText = $('#clipContent', content.document);
 
@@ -83,7 +84,8 @@ var webclipper = function () {
                 return false;
             }
 
-            body = toMarkdown(body);
+            link = "[Original url](" + url +")\n\n-----------\n\n";
+            body = link + toMarkdown(body);
 
             inputTitle.val(title);
             inputText.val(body);
