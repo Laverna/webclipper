@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
 <vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <setting type="string" pref="extensions.laverna-clipper.appURL" title="Application URL" desc="Please, provide URL, if you installed Laverna webapp on your machine."/>
+    <setting type="string" pref="extensions.laverna-clipper.defaultTags" title="Tags" desc="Put '@' before each tag and separate them by space"/>
 </vbox>

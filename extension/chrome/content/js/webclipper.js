@@ -84,7 +84,8 @@ if (title.length === 0 || body.length === 0) { return;
                 return false;
             }
 
-            link = "[Original url](" + url +")\n\n-----------\n\n";
+            link = "[Original url](" + url +") " + this.prefs.getCharPref("defaultTags")
+                    + "\n\n-----------\n\n";
             body = link + toMarkdown(body);
 
             inputTitle.val(title);
